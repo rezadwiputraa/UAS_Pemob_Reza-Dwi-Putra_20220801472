@@ -1,15 +1,15 @@
 <?php
-
 namespace App\Filament\Admin\Resources\ProductResource\Api\Transformers;
 
-use App\Models\Product;
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Models\Product;
 
 /**
  * @property Product $resource
  */
 class ProductTransformer extends JsonResource
 {
+
     /**
      * Transform the resource into an array.
      *

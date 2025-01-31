@@ -1,30 +1,28 @@
 <?php
-
 namespace App\Filament\Admin\Resources\ProductResource\Api\Handlers;
 
+use Illuminate\Http\Request;
+use Rupadana\ApiService\Http\Handlers;
 use App\Filament\Admin\Resources\ProductResource;
 use App\Filament\Admin\Resources\ProductResource\Api\Requests\CreateProductRequest;
-use Rupadana\ApiService\Http\Handlers;
 
-class CreateHandler extends Handlers
-{
-    public static ?string $uri = '/';
-
-    public static ?string $resource = ProductResource::class;
+class CreateHandler extends Handlers {
+    public static string | null $uri = '/';
+    public static string | null $resource = ProductResource::class;
 
     public static function getMethod()
     {
         return Handlers::POST;
     }
 
-    public static function getModel()
-    {
+    public static function getModel() {
         return static::$resource::getModel();
     }
 
     /**
      * Create Product
      *
+     * @param CreateProductRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function handler(CreateProductRequest $request)
@@ -35,6 +33,6 @@ class CreateHandler extends Handlers
 
         $model->save();
 
-        return static::sendSuccessResponse($model, 'Successfully Create Resource');
+        return static::sendSuccessResponse($model, "Successfully Create Resource");
     }
 }
